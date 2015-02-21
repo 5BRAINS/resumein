@@ -6,7 +6,7 @@ function RoutersConfig($routeProvider, $locationProvider) {
     $locationProvider.html5Mode(true);
 
     $routeProvider
-        .when("/home", {
+        .when("/", {
             templateUrl: "views/home.html",
             controller: "HomeController"
         })
