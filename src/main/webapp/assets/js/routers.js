@@ -9,5 +9,13 @@ function RoutersConfig($routeProvider, $locationProvider) {
         .when("/", {
             templateUrl: "views/home.html",
             controller: "HomeController"
+        })
+        .when("/preview", {
+            templateUrl: "views/home.html",
+            controller: "HomeController"
+        })
+        .when("/edit", {
+            templateUrl: "views/home.html",
+            controller: "HomeController"
         });
 }
