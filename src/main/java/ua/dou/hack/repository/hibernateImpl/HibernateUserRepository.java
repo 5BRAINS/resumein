@@ -26,16 +26,9 @@ public class HibernateUserRepository
     }
 
     @Override
-    public User find(String accessToken) {
+    public User findByToken(String accessToken) {
         Criteria criteria = getCurrentSession().createCriteria(User.class);
         criteria.add(Restrictions.eq("token", accessToken));
         return (User) criteria.uniqueResult();
-    }
-
-    @Override
-    public User readByToken(String token) {
-        return (User) getCurrentSession().createCriteria(User.class)
-                                         .add(Restrictions.eq("token", token))
-                                         .uniqueResult();
     }
 }

@@ -111,7 +111,7 @@ public class UserServiceImpl extends AbstractService<User, Integer> implements U
 
     @Override
     public boolean isTokenOld(String accessToken) {
-        User user = userRepository.find(accessToken);
+        User user = userRepository.findByToken(accessToken);
         if (user == null)
             return true;
         Timestamp expiryDate = user.getExpiryDate();

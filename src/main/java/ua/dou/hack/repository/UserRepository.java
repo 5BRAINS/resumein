@@ -9,7 +9,5 @@ import ua.dou.hack.repository.common.GenericRepository;
 public interface UserRepository extends GenericRepository <User, Integer> {
     User find(int userId);
 
-    User find(String accessToken);
-
-    User readByToken(String token);
+    User findByToken(String accessToken);
 }
