@@ -6,6 +6,7 @@
 
 body {
     overflow-x: hidden;
+    background: #4c4c4c;
 }
 
 p {
@@ -81,14 +82,75 @@ hr.star-primary:after {
 
 header {
     text-align: center;
-    color: #fff;
-    background: #18bc9c;
+    color: #FFFFFF;
+    background: #4c4c4c;
+
+}
+
+header.document-preview {
+    text-align: center;
+    color: #000;
+    background: #4c4c4c;
+
+}
+
+header.document-edit {
+    text-align: center;
+    color: #000;
+    background: #4c4c4c;
+
+}
+
+
+
+header .container.document-preview{
+    background: #4c4c4c;
+    padding-top: 100px;
+    padding-bottom: 50px;
+    width: 70%;
+}
+
+header .container.document-edit{
+    background: #4c4c4c;
+    padding-top: 100px;
+    padding-bottom: 50px;
+    width: 95%;
+
 }
 
 header .container {
+    width: 100%;
+    background: #18bc9c;
     padding-top: 100px;
     padding-bottom: 50px;
 }
+
+
+header .container.document-edit .edit-cv{
+    box-shadow: 0 0 100px rgba(0,0,0,0.5);
+    background: #fff;
+    width: 70%;
+}
+
+
+header .container.document-edit .edit-menu{
+    width: 30%;
+}
+
+
+header .container.document-preview .preview-cv{
+    box-shadow: 0 0 100px rgba(0,0,0,0.5);
+    background: #fff;
+    width: 100%;
+}
+
+
+header .container.document-preview .preview-menu{
+    width: 0%;
+}
+
+
+
 
 header img {
     display: block;
@@ -167,6 +229,8 @@ header .intro-text .skills {
 
 .navbar-default,
 .navbar-inverse {
+    background: #000;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
     border: 0;
 }
 
