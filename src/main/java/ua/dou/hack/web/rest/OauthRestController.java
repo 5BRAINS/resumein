@@ -19,8 +19,9 @@ public class OauthRestController {
     @Autowired private UserService userService;
 
     @RequestMapping(value = "saveToken")
-    public void save(@RequestParam String code, @RequestParam String state, HttpServletResponse response) {
+    public String save(@RequestParam String code, @RequestParam String state, HttpServletResponse response) {
         userService.saveAccessToken(code, response);
+        return "redirect:/";
     }
 
 }
