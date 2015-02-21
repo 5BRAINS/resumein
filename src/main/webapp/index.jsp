@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html ng-app="MainApp">
 <head>
-    <title>ResumeIn</title>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <base href="/">
+  <title>ResumeIn</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <base href="/">
 </head>
 <body>
 
@@ -13,6 +13,8 @@
 <!-- Angular -->
 <script src="bower_components/angular/angular.js"></script>
 <script src="bower_components/angular-route/angular-route.js"></script>
+
+<script src="bower_components/angular-bootstrap/ui-bootstrap.js"></script>
 
 <!-- Angular Application -->
 <script src="assets/js/app.js"></script>
