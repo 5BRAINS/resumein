@@ -134,6 +134,7 @@ header .container.document-edit .edit-cv{
 
 
 header .container.document-edit .edit-menu{
+    position: fixed;
     /*width: 30%;*/
 }
 
