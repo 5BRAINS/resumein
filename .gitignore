@@ -1,0 +1,17 @@
+# intellij
+*.iml
+*.ipr
+*.iws
+.idea/
+
+#maven
+/target
+
+# derby database
+database/
+
+logs/
+
+output/
+
+files
