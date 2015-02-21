@@ -2,6 +2,7 @@ package ua.dou.hack.utils;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
@@ -31,4 +32,17 @@ public class ResponseUtils {
         }
         return entity;
     }
+
+    public String getEntity(HttpGet request) {
+        String entity = null;
+
+        try (CloseableHttpClient httpClient = HttpClients.createDefault()) {
+            HttpResponse response = httpClient.execute(request);
+            entity = EntityUtils.toString(response.getEntity(), "UTF-8");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return entity;
+    }
+
 }
