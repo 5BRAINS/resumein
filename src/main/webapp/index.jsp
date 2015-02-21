@@ -1,11 +1,12 @@
-<%@ page language="java" pageEncoding="UTF-8" contentType="text/html; charset=utf-8" %>
+<!DOCTYPE html>
 <html>
 <head>
-    <title></title>
-    <script type="text/javascript">window.location.href = '<%=request.getContextPath()%>/home'</script>
+    <title>ResumeIn</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <base href="/">
 </head>
 <body>
-If you are not redirected automatically, click
-<a href="<%=request.getContextPath()%>/home">here</a>.
+
 </body>
 </html>
