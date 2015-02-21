@@ -1,10 +1,13 @@
 package ua.dou.hack.web.rest;
 
+import org.apache.http.HttpResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import ua.dou.hack.service.UserService;
+
+import javax.servlet.http.HttpServletResponse;
 
 /**
  * @author Dmytro Troshchuk
@@ -16,8 +19,8 @@ public class OauthRestController {
     @Autowired private UserService userService;
 
     @RequestMapping(value = "saveToken")
-    public void save(@RequestParam String code, @RequestParam String state) {
-        userService.saveAccessToken(code);
+    public void save(@RequestParam String code, @RequestParam String state, HttpServletResponse response) {
+        userService.saveAccessToken(code, response);
     }
 
 }

@@ -17,6 +17,8 @@ import ua.dou.hack.service.UserService;
 import ua.dou.hack.service.common.AbstractService;
 import ua.dou.hack.utils.ResponseUtils;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -48,7 +50,7 @@ public class UserServiceImpl extends AbstractService<User, Integer> implements U
     }
 
     @Override
-    public void saveAccessToken(String code) {
+    public void saveAccessToken(String code, HttpServletResponse response) {
         HttpPost httpPost = new HttpPost("https://www.linkedin.com/uas/oauth2/accessToken");
         ArrayList<BasicNameValuePair> parameters = new ArrayList<>();
         parameters.add(new BasicNameValuePair("grant_type", "authorization_code"));
@@ -65,6 +67,9 @@ public class UserServiceImpl extends AbstractService<User, Integer> implements U
             jsonObject = new JSONObject(json);
             accessToken = jsonObject.getString("access_token");
             expiresIn = jsonObject.getInt("expires_in");
+            Cookie cookie = new Cookie("access_token", accessToken);
+            cookie.setMaxAge(expiresIn);
+            response.addCookie(cookie);
             int userId = getUserId(accessToken);
             createUser(userId, accessToken, expiresIn);
         } catch (JSONException e) {
