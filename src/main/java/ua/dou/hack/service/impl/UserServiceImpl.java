@@ -69,6 +69,7 @@ public class UserServiceImpl extends AbstractService<User, Integer> implements U
             expiresIn = jsonObject.getInt("expires_in");
             Cookie cookie = new Cookie("access_token", accessToken);
             cookie.setMaxAge(expiresIn);
+            cookie.setPath("/");
             response.addCookie(cookie);
             int userId = getUserId(accessToken);
             createUser(userId, accessToken, expiresIn);
