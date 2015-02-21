@@ -71,37 +71,43 @@ public class UserServiceImpl extends AbstractService<User, Integer> implements U
             cookie.setMaxAge(expiresIn);
             cookie.setPath("/");
             response.addCookie(cookie);
-            int userId = getUserId(accessToken);
-            createUser(userId, accessToken, expiresIn);
+            createUser(accessToken, expiresIn);
         } catch (JSONException e) {
             e.printStackTrace();
         }
     }
 
     @Override
-    public int getUserId(String accessToken) {
+    public void createUser(String accessToken, int expIn) {
         HttpGet httpGet = new HttpGet("https://api.linkedin.com/v1/people/~?format=json");
 
         httpGet.addHeader("Authorization", "Bearer " + accessToken);
         String entity = responseUtils.getEntity(httpGet);
 
-        Matcher m = Pattern.compile("\"url\":.+?id=(\\d+)").matcher(entity);
-        return m.find() ? Integer.parseInt(m.group(1)) : -1;
-    }
+        try {
+            JSONObject jsonObject = new JSONObject(entity);
+            Matcher m = Pattern.compile("\"url\":.+?id=(\\d+)").matcher(entity);
+            if (!m.find())
+                throw new Exception("no user id");
 
-    @Override
-    public void createUser(int userId, String accessToken, int expiresIn) {
-        User user = userRepository.find(userId);
+            int userId = Integer.parseInt(m.group(1));
+            User user = userRepository.find(userId);
 
-        if (user == null) {
-            user = new User(userId);
-            user.setToken(accessToken);
-            updateUserExpiryDate(user, expiresIn);
+            if (user == null) {
+                String name = jsonObject.getString("firstName");
+                String lastName = jsonObject.getString("lastName");
+                user = new User(userId, accessToken, name, lastName);
 
-            create(user);
+                updateUserExpiryDate(user, expIn);
+
+                create(user);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
 
     }
+
 
     @Override
     public boolean isTokenOld(String accessToken) {

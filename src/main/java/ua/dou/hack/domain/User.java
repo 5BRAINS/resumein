@@ -12,12 +12,21 @@ public class User {
     private Integer id;
     private String token;
     private Timestamp expiryDate;
+    private String name;
+    private String lastName;
 
     public User() {
     }
 
     public User(Integer id) {
         this.id = id;
+    }
+
+    public User(Integer id, String token, String name, String lastName) {
+        this.id = id;
+        this.token = token;
+        this.name = name;
+        this.lastName = lastName;
     }
 
     @Id
@@ -48,6 +57,26 @@ public class User {
 
     public void setExpiryDate(Timestamp expiryDate) {
         this.expiryDate = expiryDate;
+    }
+
+    @Basic
+    @Column(name = "name")
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @Basic
+    @Column(name = "last_name")
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     @Override

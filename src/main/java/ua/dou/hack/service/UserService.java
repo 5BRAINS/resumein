@@ -11,9 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 public interface UserService extends Operations<User, Integer> {
     void saveAccessToken(String code, HttpServletResponse response);
 
-    int getUserId(String accessToken);
-
-    void createUser(int userId, String accessToken, int expiresIn);
+    void createUser(String accessToken, int expIn);
 
     boolean isTokenOld(String accessToken);
 }
