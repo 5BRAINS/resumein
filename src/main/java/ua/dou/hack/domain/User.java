@@ -1,6 +1,7 @@
 package ua.dou.hack.domain;
 
 import javax.persistence.*;
+import java.sql.Timestamp;
 
 /**
  * mocker on 21.02.15 at 18:14.
@@ -10,6 +11,14 @@ import javax.persistence.*;
 public class User {
     private Integer id;
     private String token;
+    private Timestamp expiryDate;
+
+    public User() {
+    }
+
+    public User(Integer id) {
+        this.id = id;
+    }
 
     @Id
     @Column(name = "id")
@@ -29,6 +38,16 @@ public class User {
 
     public void setToken(String token) {
         this.token = token;
+    }
+
+    @Basic
+    @Column(name = "expiry_date")
+    public Timestamp getExpiryDate() {
+        return expiryDate;
+    }
+
+    public void setExpiryDate(Timestamp expiryDate) {
+        this.expiryDate = expiryDate;
     }
 
     @Override

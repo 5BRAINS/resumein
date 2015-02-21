@@ -8,4 +8,10 @@ import ua.dou.hack.repository.common.Operations;
  */
 public interface UserService extends Operations<User, Integer> {
     void saveAccessToken(String code);
+
+    int getUserId(String accessToken);
+
+    void createUser(int userId, String accessToken, int expiresIn);
+
+    boolean isTokenOld(String accessToken);
 }
