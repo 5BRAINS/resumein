@@ -85,7 +85,7 @@ header {
     text-align: center;
     color: #FFFFFF;
     background: #18bc9c;
-    height: calc(100% - 70px) ;
+    height: calc(100% - 60px) ;
 }
 
 header.document-preview {
