@@ -16,6 +16,7 @@
     <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
 
     </head>
+
 <body>
 
 <ng-view></ng-view>
@@ -23,6 +24,8 @@
 <!-- Angular -->
 <script src="bower_components/angular/angular.js"></script>
 <script src="bower_components/angular-route/angular-route.js"></script>
+
+<script src="bower_components/angular-bootstrap/ui-bootstrap.js"></script>
 
 <!-- Angular Application -->
 <script src="assets/js/app.js"></script>

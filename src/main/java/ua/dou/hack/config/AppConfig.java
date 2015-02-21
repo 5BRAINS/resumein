@@ -77,7 +77,7 @@ public class AppConfig {
                                         env.getProperty("hibernate.dialect"));
 
         hibernateProperties.setProperty("hibernate.enable_lazy_load_no_trans", "true");
-//        hibernateProperties.setProperty("hibernate.show_sql", "true");
+        hibernateProperties.setProperty("hibernate.show_sql", env.getProperty("hibernate.show_sql"));
 //        hibernateProperties.setProperty("hibernateImpl.format_sql", "true");
 //        hibernateProperties.setProperty("hibernateImpl.globally_quoted_identifiers", "true");
         hibernateProperties.setProperty("useUnicode","true");

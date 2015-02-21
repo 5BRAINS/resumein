@@ -1,13 +1,15 @@
 package ua.dou.hack.domain;
 
-import javax.persistence.*;
+import javax.persistence.Basic;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
 /**
- * mocker on 21.02.15 at 16:45.
+ * mocker on 21.02.15 at 18:14.
  */
 @Entity
-@Table(name = "Informations", schema = "", catalog = "resumein")
-public class Information {
+public class Informations {
     private Integer id;
     private String userId;
     private String fieldName;
@@ -58,7 +60,7 @@ public class Information {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Information that = (Information) o;
+        Informations that = (Informations) o;
 
         if (fieldName != null ? !fieldName.equals(that.fieldName) : that.fieldName != null) return false;
         if (fieldValue != null ? !fieldValue.equals(that.fieldValue) : that.fieldValue != null) return false;
