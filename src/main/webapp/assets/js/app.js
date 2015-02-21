@@ -1,1 +1,1 @@
-var app = angular.module("MainApp", ["ngRoute", "ui.bootstrap"]);
+var app = angular.module("MainApp", ["ngRoute", "ngCookies", "ui.bootstrap"]);

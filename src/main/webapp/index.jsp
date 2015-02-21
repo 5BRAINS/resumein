@@ -21,6 +21,7 @@
 <!-- Angular -->
 <script src="/bower_components/angular/angular.js"></script>
 <script src="/bower_components/angular-route/angular-route.js"></script>
+<script src="/bower_components/angular-cookies/angular-cookies.js"></script>
 
 <script src="/bower_components/angular-bootstrap/ui-bootstrap.js"></script>
 
@@ -30,6 +31,9 @@
 
 <!-- Controllers -->
 <script src="/assets/js/controllers/homeController.js"></script>
+
+<!-- Services -->
+<script src="/assets/js/services/authService.js"></script>
 
 </body>
 </html>

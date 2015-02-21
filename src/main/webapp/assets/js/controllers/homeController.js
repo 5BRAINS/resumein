@@ -1,7 +1,7 @@
 app.controller("HomeController", HomeController);
 
-HomeController.$inject = [];
+HomeController.$inject = ["$cookies", "authService"];
 
-function HomeController() {
-
+function HomeController($cookies, authService) {
+    authService.isUserAuthorized()
 }
