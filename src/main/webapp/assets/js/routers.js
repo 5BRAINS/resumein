@@ -7,11 +7,7 @@ function RoutersConfig($routeProvider, $locationProvider) {
 
     $routeProvider
         .when("/", {
-            templateUrl: "views/cv_preview.html",
+            templateUrl: "views/home.html",
             controller: "HomeController"
-        })
-
-        .otherwise({
-            redirectTo: "/"
         });
 }
