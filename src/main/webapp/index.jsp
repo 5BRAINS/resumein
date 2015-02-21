@@ -33,15 +33,5 @@
 
 <!-- Controllers -->
 <script src="assets/js/controllers/homeController.js"></script>
-
-    <!-- Plugin JavaScript -->
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
-    <script src="assets/js/template/classie.js"></script>
-    <script src="assets/js/template/cbpAnimatedHeader.js"></script>
-
-    <!-- Custom Theme JavaScript -->
-    <script src="assets/js/template/freelancer.js"></script>
-
-
 </body>
 </html>
