@@ -8,10 +8,13 @@
 		<!-- Collect the nav links, forms, and other content for toggling -->
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav navbar-right">
-				<li class="page-scroll">
+				<li class="page-scroll" ng-show="userAuthorized">
 					<a href=""><span class="text-primary">My Resume</span></a>
 				</li>
-				<li class="page-scroll">
+				<li class="page-scroll" ng-show="userAuthorized">
+					<a href="" ng-click="signOut()">Sign Out</a>
+				</li>
+				<li class="page-scroll" ng-hide="userAuthorized">
 					<a href="https://www.linkedin.com/uas/oauth2/authorization?response_type=code&client_id=75ykbya0jkulal&redirect_uri=http://localhost:8080/rest/oauth/saveToken/&state=wejncjk&scope=r_fullprofile">Sign In</a>
 				</li>
 			</ul>
