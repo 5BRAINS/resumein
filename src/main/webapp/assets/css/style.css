@@ -35,28 +35,32 @@
     margin: 50px 0 0 0;
 }
 
+.title-hr {
+    width: 50%;
+}
+
 .head-info{
     text-align: right;
 }
-    .head-info .title{
-        font-weight: bolder;
-        font-size: 18px;
-    }
+.head-info .title{
+    font-weight: bolder;
+    font-size: 18px;
+}
 
-    .head-info .value{
-        font-size: 15px;
-    }
+.head-info .value{
+    font-size: 15px;
+}
 
 .text-separator{
     margin: 10px 0 10px 0;
 }
 
-    .text-separator  div{
-        text-align: left;
-        background: rgba(0,0,0,0.2);
-        border-top: 1px solid black;
-        border-bottom: 1px solid black;
-    }
+.text-separator  div{
+    text-align: left;
+    background: rgba(0,0,0,0.2);
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
 
 
 .line-separator > div{
@@ -67,22 +71,21 @@
     margin: 20px 0 10px 0;
 }
 
-    .work-description{
-        text-align: left;
-        padding: 10px;
-    }
-    .work-position{
-        padding: 0;
-        text-align: left;
-        font-weight: bolder;
-    }
-    .work-time{
-        padding: 0;
-        text-align: right;
-    }
-    .work-firm{
-        padding: 0;
-        text-align: left;
-        font-style: italic;
-    }    border: 0;
+.work-description{
+    text-align: left;
+    padding: 10px;
+}
+.work-position{
+    padding: 0;
+    text-align: left;
+    font-weight: bolder;
+}
+.work-time{
+    padding: 0;
+    text-align: right;
+}
+.work-firm{
+    padding: 0;
+    text-align: left;
+    font-style: italic;
 }

@@ -107,7 +107,7 @@ header .container.document-preview{
     background: #4c4c4c;
     padding-top: 100px;
     padding-bottom: 50px;
-    width: 60%;
+    /*width: 60%;*/
 }
 
 header .container.document-edit{
@@ -129,19 +129,18 @@ header .container {
 header .container.document-edit .edit-cv{
     box-shadow: 0 0 100px rgba(0,0,0,0.5);
     background: #fff;
-    width: 70%;
+    /*width: 70%;*/
 }
 
 
 header .container.document-edit .edit-menu{
-    width: 30%;
+    /*width: 30%;*/
 }
 
 
 header .container.document-preview .preview-cv{
     box-shadow: 0 0 100px rgba(0,0,0,0.5);
     background: #fff;
-    width: 100%;
 }
 
 
