@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration status="INFO">
+    <Properties>
+        <Property name="filename">logs/info</Property>
+    </Properties>
+    <appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} %X{UserName} %X{ip} %-5level %logger{36} - %msg%n"/>
+        </Console>
+        <RollingFile name="Logfile"
+                     fileName="${filename}"
+                     filePattern="${filename}-%d{yyyy-MM-dd}.log">
+            <PatternLayout pattern="%d %X{UserName} %X{ip} %-5p [%t] %C{2} (%F:%L) - %m%n"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+            </Policies>
+        </RollingFile>
+        <File name="ErrorFile" fileName="logs/errors.log">
+            <PatternLayout pattern="%d{yyyy-mm-dd HH:mm:ss.SSS} %X{UserName} %X{ip} [%t] %-5level %logger{36} - %msg%n"/>
+        </File>
+    </appenders>
+    <loggers>
+        <root level="debug">
+            <appender-ref ref="Console" level="info"/>
+            <appender-ref ref="Logfile" level="info"/>
+            <appender-ref ref="ErrorFile" level="error"/>
+        </root>
+    </loggers>
+</configuration>
