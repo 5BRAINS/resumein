@@ -4,9 +4,10 @@
  * For details, see http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-body {
+body,html {
     overflow-x: hidden;
     background: #4c4c4c;
+    height: 100%;
 }
 
 p {
@@ -83,8 +84,8 @@ hr.star-primary:after {
 header {
     text-align: center;
     color: #FFFFFF;
-    background: #4c4c4c;
-
+    background: #18bc9c;
+    height: 100%;
 }
 
 header.document-preview {
