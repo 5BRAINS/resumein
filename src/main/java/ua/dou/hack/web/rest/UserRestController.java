@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import ua.dou.hack.service.ResumeService;
 import ua.dou.hack.service.UserService;
 
 import javax.servlet.http.HttpServletResponse;
@@ -20,10 +21,17 @@ public class UserRestController {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private ResumeService resumeService;
+
     @RequestMapping(value = "get_short_url")
     @ResponseBody
     public String getShortUrl(@CookieValue("access_token") String accessToken) {
 
         return "{\"link\" : \"" + userService.getShortLink(accessToken) + "\"}";
+    }
+
+    public String getUserInfo(@CookieValue("access_token") String accessToken) {
+        return "{\"info\" : \"" + resumeService.getUserInfo(accessToken) + "\"}";
     }
 }
