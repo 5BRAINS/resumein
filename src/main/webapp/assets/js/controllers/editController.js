@@ -1,8 +1,8 @@
 app.controller("EditController", EditController);
 
-EditController.$inject = ["$scope", "resumeService"];
+EditController.$inject = ["$scope", "resumeService", "authService"];
 
-function EditController($scope, resumeService) {
+function EditController($scope, resumeService, authService) {
     $scope.education = true;
     $scope.skills = true;
     $scope.work_history = true;

@@ -1,25 +1,30 @@
-<!-- Navigation -->
-<nav class = "navbar navbar-default navbar-fixed-top">
-	<div class = "container ">
-		<!-- Brand and toggle get grouped for better mobile display -->
+<div ng-controller="EditController">
+	<!-- Navigation -->
+	<nav class = "navbar navbar-default navbar-fixed-top">
+		<div class = "container ">
+			<!-- Brand and toggle get grouped for better mobile display -->
 
-		<!-- Collect the nav links, forms, and other content for toggling -->
-		<div class = "collapse navbar-collapse" id = "bs-example-navbar-collapse-1">
-			<ul class = "nav navbar-nav navbar-left">
-				<li class = "page-scroll">
-					<a href = ""><span class="glyphicon glyphicon-download"></span> PDF</a>
-				</li>
-				<li class = "page-scroll">
-					<a href = ""><span class="glyphicon glyphicon-edit"></span> Edit</a>
-				</li>
-			</ul>
-			<ul class = "nav navbar-nav navbar-right">
-				<li class="page-scroll" ng-show="userAuthorized">
-					<a href="" ng-click="signOut()">Sign Out</a>
-				</li>
-			</ul>
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class = "collapse navbar-collapse" id = "bs-example-navbar-collapse-1">
+				<ul class = "nav navbar-nav navbar-left">
+					<li class = "page-scroll">
+						<a href = ""><span class="glyphicon glyphicon-floppy-disk"></span> Save</a>
+					</li>
+					<li class = "page-scroll">
+						<a href = ""><span class="glyphicon glyphicon-picture"></span> Preview</a>
+					</li>
+					<li class = "page-scroll">
+						<a href="" ng-click="loadFromLinkedIn()"><span class="glyphicon glyphicon-save"></span> Load from LinkedIn</a>
+					</li>
+				</ul>
+				<ul class = "nav navbar-nav navbar-right">
+					<li class="page-scroll" ng-show="userAuthorized">
+						<a href="" ng-click="signOut()">Sign Out</a>
+					</li>
+				</ul>
+			</div>
+			<!-- /.container-fluid -->
 		</div>
-		<!-- /.container-fluid -->
 	</nav>
 
 	<!-- Header -->
@@ -27,7 +32,7 @@
 		<div class = "container document-edit">
 			<div class="row" >
 				<div class="col-md-8 edit-cv">
-					<div class="center-block" ng-include="'/views/templates/cv_template.html'"></div>
+					<div class="center-block" ng-include="'/views/templates/edit/cv_template1.html'"></div>
 				</div>
 				<div class="col-md-3 col-md-offset-8 edit-menu">
 					<div class="panel panel-default">
