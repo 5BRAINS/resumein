@@ -8,4 +8,10 @@ function PreviewController($scope) {
     $scope.work_history = true;
     $scope.contacts = true;
     $scope.headline = true;
+
+    $scope.userAuthorized = authService.isUserAuthorized();
+    $scope.signOut = function() {
+        authService.signOut();
+        location.reload();
+    };
 }

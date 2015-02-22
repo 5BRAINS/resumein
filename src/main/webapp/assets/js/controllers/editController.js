@@ -17,4 +17,10 @@ function EditController($scope, resumeService) {
             $scope.info = data;
         })
     }
+
+    $scope.userAuthorized = authService.isUserAuthorized();
+    $scope.signOut = function() {
+        authService.signOut();
+        location.reload();
+    };
 }

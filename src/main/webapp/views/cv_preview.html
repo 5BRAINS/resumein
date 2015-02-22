@@ -15,8 +15,8 @@
 					</li>
 				</ul>
 				<ul class = "nav navbar-nav navbar-right">
-					<li class = "page-scroll">
-						<a href = "">Sign Out</a>
+					<li class="page-scroll" ng-show="userAuthorized">
+						<a href="" ng-click="signOut()">Sign Out</a>
 					</li>
 				</ul>
 			</div>
