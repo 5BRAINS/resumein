@@ -43,13 +43,6 @@ public class UserRestController {
         return "";
     }
 
-    @RequestMapping(value = "has_resume")
-    @ResponseBody
-    public boolean hasResume(@CookieValue("access_token") String accessToken) {
-
-        return resumeService.isResumeInUser(accessToken);
-    }
-
     @RequestMapping(value = "get_user")
     @ResponseBody
     public UserDto getUser(@CookieValue("access_token") String accessToken) {

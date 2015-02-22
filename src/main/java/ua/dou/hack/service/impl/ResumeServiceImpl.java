@@ -74,6 +74,25 @@ public class ResumeServiceImpl
     }
 
     @Override
+    public void saveResume(String accessToken, String resumeInfo, String resumeName,
+                           int templateId) {
+        User user = userRepository.findByToken(accessToken);
+        if (user == null)
+            return;
+        if (!user.getResumes().isEmpty()) {
+            user.getResumes().get(0).setUserInfo(resumeInfo);
+            userRepository.update(user);
+            return;
+        }
+        Resume resume = new Resume();
+        resume.setUser(user);
+        resume.setName(resumeName);
+        resume.setTemplateId(templateId);
+
+        create(resume);
+    }
+
+    @Override
     public boolean isResumeInUser(String accessToken) {
         User user = userRepository.findByToken(accessToken);
         return user != null && !user.getResumes().isEmpty();

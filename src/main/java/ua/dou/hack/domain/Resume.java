@@ -13,6 +13,8 @@ public class Resume {
     private String path;
     private User user;
     private String userInfo;
+    private int templateId;
+    private String name;
 
     @Id
     @Column(name = "id")
@@ -62,6 +64,26 @@ public class Resume {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    @Basic
+    @Column(name = "template_id")
+    public int getTemplateId() {
+        return templateId;
+    }
+
+    public void setTemplateId(int templateId) {
+        this.templateId = templateId;
+    }
+
+    @Basic
+    @Column(name = "name")
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     @Override
