@@ -11,6 +11,7 @@ public class Resume {
     private Integer id;
     private String link;
     private String path;
+    private User user;
 
     @Id
     @Column(name = "id")
@@ -40,6 +41,16 @@ public class Resume {
 
     public void setPath(String path) {
         this.path = path;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     @Override

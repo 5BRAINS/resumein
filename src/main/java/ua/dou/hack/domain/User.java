@@ -2,6 +2,7 @@ package ua.dou.hack.domain;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.util.List;
 
 /**
  * mocker on 21.02.15 at 18:14.
@@ -14,6 +15,7 @@ public class User {
     private Timestamp expiryDate;
     private String name;
     private String lastName;
+    private List<Resume> resumes;
 
     public User() {
     }
@@ -77,6 +79,15 @@ public class User {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    @OneToMany(mappedBy = "user")
+    public List<Resume> getResumes() {
+        return resumes;
+    }
+
+    public void setResumes(List<Resume> resumes) {
+        this.resumes = resumes;
     }
 
     @Override
