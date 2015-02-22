@@ -1,52 +1,55 @@
 <div class = "cv-body template2">
-	<div class = "row headline">
+	<div class = "row headline" ng-show="headline">
 		<div class = "col-md-10 col-md-offset-1 text-center"><h3>Lopachuck Nikolay</h3></div>
 	</div>
 
-	<div class = "row contacts">
+	<div class = "row contacts" ng-show = "contacts">
 		<div class = "col-md-3"><span class = "title">Email: </span><span class = "value">test@test.ua</span></div>
 		<div class = "col-md-3"><span class = "title">Github: </span><span class = "value">coolrepo</span></div>
 		<div class = "col-md-3"><span class = "title">Skype: </span><span class = "value">skyyyyypeeee</span></div>
 		<div class = "col-md-3"><span class = "title">Telephone: </span><span class = "value">123123123</span></div>
 	</div>
-	<div class = "row text-separator">
+	<div class = "row text-separator" ng-show = "work_history">
 		<div class = "col-md-3"><h4>Work Histroy</h4></div>
 	</div>
-	<div class = "row work-block">
-		<div>
-			<div class = "col-md-1 col-md-offset-1 work-position"> Java Dev</div>
-			<div class = "col-md-2 col-md-offset-7 work-time">2014 - now</div>
-			<div class = "col-md-1 col-md-offset-1 work-firm ">5brains</div>
-		</div>
-		<div>
+	<div ng-show = "work_history">
+		<div class = "row work-block">
+			<div>
+				<div class = "col-md-1 col-md-offset-1 work-position"> Java Dev</div>
+				<div class = "col-md-2 col-md-offset-7 work-time">2014 - now</div>
+				<div class = "col-md-1 col-md-offset-1 work-firm ">5brains</div>
+			</div>
+			<div>
+				<div class = "row line-separator">
+					<div class = "col-md-10 col-md-offset-1"></div>
+				</div>
+				<div class = "col-md-10 col-md-offset-1 work-description">
+					Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
+					standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to
+					make
+					a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,
+					remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets
+					containing
+					Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including
+					versions
+					of Lorem Ipsum.
+				</div>
+			</div>
 			<div class = "row line-separator">
 				<div class = "col-md-10 col-md-offset-1"></div>
 			</div>
-			<div class = "col-md-10 col-md-offset-1 work-description">
-				Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
-				standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make
-				a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,
-				remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing
-				Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions
-				of Lorem Ipsum.
-			</div>
-		</div>
-		<div class = "row line-separator">
-			<div class = "col-md-10 col-md-offset-1"></div>
 		</div>
 	</div>
-
 	<div class = "row text-separator">
-		<div class = "col-md-3 col-md-offset-1"><h4>Tech skills</h4></div>
-		<div class = "col-md-3 col-md-offset-3"><h4>Education</h4></div>
+		<div class = "col-md-3 col-md-offset-1" ng-show = "skills"><h4>Tech skills</h4></div>
+		<div class = "col-md-3 col-md-offset-3" ng-show="education"><h4>Education</h4></div>
 	</div>
 
-	<div class="row">
-		<div class = "col-md-4 col-md-offset-1 text-left skills"> Java, Rap, Niga Java, Rap, Niga Java, Rap, Niga Java, Rap, Niga </div>
-		<div class = "col-md-4 col-md-offset-2 text-left skills"> Java, Rap, Niga </div>
+	<div class = "row">
+		<div class = "col-md-4 col-md-offset-1 text-left skills" ng-show = "skills"> Java, Rap, Niga Java, Rap, Niga Java, Rap, Niga Java, Rap,
+		                                                          Niga
+		</div>
+		<div class = "col-md-4 col-md-offset-2 text-left skills" ng-show="education"> Java, Rap, Niga</div>
 	</div>
 
 </div>
-
-
-<!--Email: test@test.ruGithub: asdas Skype: asdas Telephone: asdas-->

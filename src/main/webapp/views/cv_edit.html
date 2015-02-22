@@ -26,11 +26,11 @@
 </nav>
 
 <!-- Header -->
-<header class="document-edit">
+<header class="document-edit" ng-controller="EditController">
 	<div class = "container document-edit">
-		<div class="row">
+		<div class="row" >
 			<div class="col-md-8 edit-cv">
-				<div class="center-block" ng-include="'/views/templates/cv_template2.html'"></div>
+				<div class="center-block" ng-include="'/views/templates/cv_template.html'"></div>
 			</div>
 			<div class="col-md-3 col-md-offset-8 edit-menu">
 				<div class="panel panel-default">
@@ -43,19 +43,21 @@
 						</div>
 						<div class="text-left">
 							<h5>Fields:</h5>
-							<label><input type="checkbox">Field name</label><br>
-							<label><input type="checkbox">Field name</label><br>
-							<label><input type="checkbox">Field name</label><br>
-							<label><input type="checkbox">Field name</label><br>
-							<label><input type="checkbox">Field name</label><br>
-							<label><input type="checkbox">Field name</label><br>
-							<label><input type="checkbox">Field name</label><br>
+							<label><input type="checkbox" ng-model="headline">Headline</label><br>
+							<label><input type="checkbox" ng-model="contacts">Contacts</label><br>
+							<label><input type="checkbox" ng-model="work_history">Work history</label><br>
+							<label><input type="checkbox" ng-model="skills">Tech skills</label><br>
+							<label><input type="checkbox" ng-model="education">Education</label><br>
 						</div>
+
+						<div class="text-left">
+							<h5>Templates:</h5>
+							<label><input type="checkbox" >Template 1</label><br>
+						</div>
+
 					</div>
 				</div>
 			</div>
-
 		</div>
-
 	</div>
 </header>
