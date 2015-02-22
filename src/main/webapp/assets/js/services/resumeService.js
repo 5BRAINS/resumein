@@ -25,6 +25,10 @@ function resumeService($http) {
             return $http.get("/rest/get_user").then(function(response) {
                 return response.data;
             });
+        },
+
+        saveCv: function(userInfo) {
+            return $http.post("/rest/save_resume", "user_info=" + userInfo + "&name='1'&template_id=1").then();
         }
     }
 }

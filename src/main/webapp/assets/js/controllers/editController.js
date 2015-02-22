@@ -44,5 +44,7 @@ function EditController($scope, resumeService, authService) {
         location.reload();
     };
 
-
+    $scope.save = function() {
+        resumeService.saveCv($scope.info);
+    }
 }
