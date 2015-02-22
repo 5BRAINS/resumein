@@ -55,7 +55,7 @@
     margin: 10px 0 10px 0;
 }
 
-.text-separator  div{
+.template .text-separator  div{
     text-align: left;
     background: rgba(0,0,0,0.2);
     border-top: 1px solid black;
@@ -63,7 +63,7 @@
 }
 
 
-.line-separator > div{
+.template .line-separator > div{
     border-bottom: 1px solid black;
 }
 
@@ -88,4 +88,38 @@
     padding: 0;
     text-align: left;
     font-style: italic;
+}
+
+
+.template2 h3{
+    font-family:"Consolas", "Menlo", "Courier", monospace ;
+}
+
+.template2 .title{
+    font-weight: bolder;
+    font-size: 18px;
+    color: #5cb85c;
+
+}
+
+.template2 .value{
+
+}
+
+.template2 .text-separator{
+    color: #5cb85c;
+    margin: 20px 0 10px 0;
+}
+
+.template2 .line-separator div{
+    border-bottom: 2px dotted darkgreen;
+}
+
+
+.template2 .skills{
+    font-weight: bolder;
+}
+
+.template2 .headline{
+    margin: 0 0 30px 0;
 }
