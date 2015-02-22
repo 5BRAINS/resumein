@@ -11,6 +11,7 @@ import ua.dou.hack.domain.User;
 import ua.dou.hack.repository.ResumeRepository;
 import ua.dou.hack.repository.common.Operations;
 import ua.dou.hack.service.ResumeService;
+import ua.dou.hack.service.UserService;
 import ua.dou.hack.service.common.AbstractService;
 import ua.dou.hack.utils.ResponseUtils;
 
@@ -32,6 +33,9 @@ public class ResumeServiceImpl
 
     @Autowired
     private ResponseUtils responseUtils;
+
+    @Autowired
+    private UserService userService;
     
     @Override
     protected Operations<Resume, Integer> getRepository() {
@@ -39,11 +43,20 @@ public class ResumeServiceImpl
     }
 
     @Override
-    public String grabUserInfo(User user) {
+    public String getUserInfo(String accessToken) {
+        User user = userService.findByToken(accessToken);
+        if (user == null)
+            return "";
+        if (!user.getResumes().isEmpty())
+            return user.getResumes().get(0).getUserInfo();
+        return grabUserInfo(accessToken);
+    }
+
+    private String grabUserInfo(String accessToken) {
         String url = env.getProperty("user.info.link");
         HttpGet httpGet = new HttpGet(url);
         httpGet.addHeader("Connection", "Keep-Alive");
-        httpGet.addHeader("Authorization", "Bearer " + user.getToken());
+        httpGet.addHeader("Authorization", "Bearer " + accessToken);
         String entity = responseUtils.getEntity(httpGet);
         return entity;
     }

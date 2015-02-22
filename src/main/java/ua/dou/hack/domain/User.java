@@ -81,7 +81,7 @@ public class User {
         this.lastName = lastName;
     }
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
     public List<Resume> getResumes() {
         return resumes;
     }

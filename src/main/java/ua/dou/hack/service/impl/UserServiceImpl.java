@@ -133,6 +133,11 @@ public class UserServiceImpl extends AbstractService<User, Integer> implements U
         return link;
     }
 
+    @Override
+    public User findByToken(String accessToken) {
+        return userRepository.findByToken(accessToken);
+    }
+
     private void updateUserExpiryDate(User user, int expIn) {
         Calendar instance = Calendar.getInstance();
         long expTime = instance.getTime().getTime() + expIn * 1000;

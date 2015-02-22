@@ -16,4 +16,6 @@ public interface UserService extends Operations<User, Integer> {
     boolean isTokenOld(String accessToken);
 
     String getShortLink(String accessToken);
+
+    User findByToken(String accessToken);
 }

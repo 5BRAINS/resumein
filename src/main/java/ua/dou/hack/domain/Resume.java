@@ -12,6 +12,7 @@ public class Resume {
     private String link;
     private String path;
     private User user;
+    private String userInfo;
 
     @Id
     @Column(name = "id")
@@ -41,6 +42,16 @@ public class Resume {
 
     public void setPath(String path) {
         this.path = path;
+    }
+
+    @Basic
+    @Column(name = "user_info")
+    public String getUserInfo() {
+        return userInfo;
+    }
+
+    public void setUserInfo(String userInfo) {
+        this.userInfo = userInfo;
     }
 
     @ManyToOne
