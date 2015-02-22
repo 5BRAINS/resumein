@@ -9,10 +9,11 @@ import org.springframework.transaction.annotation.Transactional;
 import ua.dou.hack.domain.Resume;
 import ua.dou.hack.domain.User;
 import ua.dou.hack.repository.ResumeRepository;
+import ua.dou.hack.repository.UserRepository;
 import ua.dou.hack.repository.common.Operations;
 import ua.dou.hack.service.ResumeService;
-import ua.dou.hack.service.UserService;
 import ua.dou.hack.service.common.AbstractService;
+import ua.dou.hack.utils.PdfUtils;
 import ua.dou.hack.utils.ResponseUtils;
 
 /**
@@ -35,7 +36,10 @@ public class ResumeServiceImpl
     private ResponseUtils responseUtils;
 
     @Autowired
-    private UserService userService;
+    private UserRepository userRepository;
+
+    @Autowired
+    private PdfUtils pdfUtils;
     
     @Override
     protected Operations<Resume, Integer> getRepository() {
@@ -44,12 +48,29 @@ public class ResumeServiceImpl
 
     @Override
     public String getUserInfo(String accessToken) {
-        User user = userService.findByToken(accessToken);
+        User user = userRepository.findByToken(accessToken);
         if (user == null)
             return "";
         if (!user.getResumes().isEmpty())
             return user.getResumes().get(0).getUserInfo();
         return grabUserInfo(accessToken);
+    }
+
+    @Override
+    public void savePdf(String accessToken, String html) {
+        User user = userRepository.findByToken(accessToken);
+        if (user == null)
+            return;
+        pdfUtils.createPdf(html, "/files/" + user.getId());
+        if (!user.getResumes().isEmpty()) {
+            user.getResumes().get(0).setPath("/files/" + user.getId());
+
+        } else {
+            Resume resume = new Resume();
+            resume.setPath("/files/" + user.getId());
+            user.getResumes().add(resume);
+        }
+        userRepository.update(user);
     }
 
     private String grabUserInfo(String accessToken) {

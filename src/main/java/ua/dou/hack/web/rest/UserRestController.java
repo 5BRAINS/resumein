@@ -31,7 +31,16 @@ public class UserRestController {
         return "{\"link\" : \"" + userService.getShortLink(accessToken) + "\"}";
     }
 
+    @RequestMapping(value = "get_user_info")
+    @ResponseBody
     public String getUserInfo(@CookieValue("access_token") String accessToken) {
         return "{\"info\" : \"" + resumeService.getUserInfo(accessToken) + "\"}";
+    }
+
+    @RequestMapping(value = "save_pdf")
+    @ResponseBody
+    public String savePdf(@CookieValue("access_token") String accessToken, String html) {
+        resumeService.savePdf(accessToken, html);
+        return "";
     }
 }
