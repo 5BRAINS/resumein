@@ -35,5 +35,8 @@
 <!-- Services -->
 <script src="/assets/js/services/authService.js"></script>
 
+<!-- Directives -->
+<script src="/assets/js/directives/compile.js"></script>
+
 </body>
 </html>
