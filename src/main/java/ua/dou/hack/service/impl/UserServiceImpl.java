@@ -57,7 +57,7 @@ public class UserServiceImpl extends AbstractService<User, Integer> implements U
         ArrayList<BasicNameValuePair> parameters = new ArrayList<>();
         parameters.add(new BasicNameValuePair("grant_type", "authorization_code"));
         parameters.add(new BasicNameValuePair("code", code));
-        parameters.add(new BasicNameValuePair("redirect_uri", "http://localhost:8080/rest/oauth/saveToken/"));
+        parameters.add(new BasicNameValuePair("redirect_uri", "https://intense-tundra-9640.herokuapp.com/rest/oauth/saveToken/"));
         parameters.add(new BasicNameValuePair("client_id", env.getProperty("client.key")));
         parameters.add(new BasicNameValuePair("client_secret", env.getProperty("client.secret")));
         String json = responseUtils.getEntity(httpPost, parameters);
