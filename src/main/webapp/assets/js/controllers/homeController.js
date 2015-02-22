@@ -12,7 +12,7 @@ function HomeController($scope, authService, resumeService) {
 
     $scope.signOut = function() {
         authService.signOut();
-        location.reload();
+        window.location = '/';
     };
 
 }

@@ -12,6 +12,6 @@ function PreviewController($scope) {
     $scope.userAuthorized = authService.isUserAuthorized();
     $scope.signOut = function() {
         authService.signOut();
-        location.reload();
+        window.location = '/';
     };
 }
