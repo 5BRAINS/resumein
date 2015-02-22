@@ -19,6 +19,12 @@ function resumeService($http) {
             return $http.get("/rest/get_user_info").then(function(response) {
                 return response.data;
             })
+        },
+
+        getUserName: function() {
+            return $http.get("/rest/get_user").then(function(response) {
+                return response.data;
+            });
         }
     }
 }

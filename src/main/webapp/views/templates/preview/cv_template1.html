@@ -1,0 +1,64 @@
+<div class = "cv-body template">
+
+	<div class = "row head-info">
+		<div class = "col-md-10 col-md-offset-1" ng-show="headline" ><h3>{{info.firstName}} {{info.lastName}}</h3></div>
+
+		<div ng-show = "contacts">
+
+			<div class = "col-md-10 col-md-offset-1"><span class = "title">Email: </span><span
+					class = "value">test@test.ru</span></div>
+			<div class = "col-md-10 col-md-offset-1"><span class = "title">Github: </span><span class = "value">asdas</span>
+			</div>
+			<div class = "col-md-10 col-md-offset-1"><span class = "title">Skype: </span><span class = "value">asdas</span>
+			</div>
+			<div class = "col-md-10 col-md-offset-1"><span class = "title">Telephone: </span><span
+					class = "value">asdas</span>
+			</div>
+		</div>
+
+	</div>
+
+	<div ng-show = "work_history">
+		<div class = "row text-separator">
+			<div class = "col-md-10 col-md-offset-1"><h6>Experience</h6></div>
+		</div>
+
+		<div class = "row work-block" ng-repeat="work in info.work track by $index">
+			<div class = "col-md-5 col-md-offset-1 work-position ">{{work.title}}</div>
+			<div class = "col-md-2 col-md-offset-3 work-time ">
+				{{work.startDate.month}} {{work.startDate.year}} - <span ng-show="work.endDate == undefined">now</span><span>{{work.endDate.month}} {{work.endDate.year}}</span>
+			</div>
+
+			<div class = "col-md-1 col-md-offset-1 work-firm ">{{work.company.name}}</div>
+
+			<div class = "col-md-10 col-md-offset-1 work-description">
+				{{work.summary}}
+			</div>
+		</div>
+	</div>
+
+
+	<div ng-show = "skills">
+		<div class = "row text-separator">
+			<div class = "col-md-10 col-md-offset-1"><h6>Skills</h6></div>
+		</div>
+		<div class = "col-md-10 col-md-offset-1 work-description">
+			{{info.skills}}
+		</div>
+	</div>
+
+	<div ng-show = "education">
+		<div class = "row text-separator">
+			<div class = "col-md-10 col-md-offset-1"><h6>Education</h6></div>
+		</div>
+		<div class = "col-md-10 col-md-offset-1 work-description">
+			<div ng-repeat="school in info.education.values">
+				<p>{{school.schoolName}}</p>
+				{{school.fieldOfStudy}}<br>
+				<i>{{school.degree}}, {{school.startDate.year}} - {{school.endDate.year}}</i>
+			</div>
+		</div>
+	</div>
+	<div class="footer-spacer"></div>
+
+</div>

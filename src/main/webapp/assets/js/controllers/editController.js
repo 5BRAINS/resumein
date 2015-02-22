@@ -9,18 +9,40 @@ function EditController($scope, resumeService) {
     $scope.contacts = true;
     $scope.headline = true;
 
-    $scope.info = {};
-
     $scope.loadFromLinkedIn = function() {
-        console.log("test");
+        $scope.info = {};
+
         resumeService.getUserInfo().then(function(data) {
-            $scope.info = data;
-        })
-    }
+            $scope.info.skills = "";
+            for (var i = 0; i < data.skills._total; i++) {
+                $scope.info.skills += data.skills.values[i].skill.name + "; "
+            }
+
+            $scope.info.work = [];
+            for (var i = 0; i < data.threeCurrentPositions._total; i++) {
+                $scope.info.work.push(data.threeCurrentPositions.values[i]);
+            }
+            for (var i = 0; i < data.threePastPositions._total; i++) {
+                $scope.info.work.push(data.threePastPositions.values[i]);
+            }
+
+            $scope.info.languages = data.languages;
+            $scope.info.education = data.educations;
+            $scope.info.interests = data.interests;
+        });
+
+        resumeService.getUserName().then(function(data) {
+            $scope.info.firstName = data.name;
+            $scope.info.lastName = data.lastName;
+        });
+
+    };
 
     $scope.userAuthorized = authService.isUserAuthorized();
     $scope.signOut = function() {
         authService.signOut();
         location.reload();
     };
+
+
 }
