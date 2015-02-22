@@ -8,7 +8,7 @@ import java.util.List;
  * mocker on 21.02.15 at 18:14.
  */
 @Entity
-@Table(name = "Users", schema = "", catalog = "resumein")
+@Table(name = "Users")
 public class User {
     private Integer id;
     private String token;

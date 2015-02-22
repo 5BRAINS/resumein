@@ -6,7 +6,7 @@ import javax.persistence.*;
  * mocker on 21.02.15 at 18:14.
  */
 @Entity
-@Table(name = "Resumes", schema = "", catalog = "resumein")
+@Table(name = "Resumes")
 public class Resume {
     private Integer id;
     private String link;
