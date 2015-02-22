@@ -3,6 +3,8 @@ package ua.dou.hack.web.rest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import ua.dou.hack.UserDto;
+import ua.dou.hack.domain.User;
 import ua.dou.hack.service.ResumeService;
 import ua.dou.hack.service.UserService;
 
@@ -46,5 +48,12 @@ public class UserRestController {
     public boolean hasResume(@CookieValue("access_token") String accessToken) {
 
         return resumeService.isResumeInUser(accessToken);
+    }
+
+    @RequestMapping(value = "get_user")
+    @ResponseBody
+    public UserDto getUser(@CookieValue("access_token") String accessToken) {
+        User user = userService.findByToken(accessToken);
+        return new UserDto(user);
     }
 }
