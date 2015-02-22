@@ -2,10 +2,7 @@ package ua.dou.hack.web.rest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.CookieValue;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import ua.dou.hack.service.ResumeService;
 import ua.dou.hack.service.UserService;
 
@@ -24,20 +21,20 @@ public class UserRestController {
     @Autowired
     private ResumeService resumeService;
 
-    @RequestMapping(value = "get_short_url")
+    @RequestMapping(value = "get_short_url", method = RequestMethod.POST)
     @ResponseBody
     public String getShortUrl(@CookieValue("access_token") String accessToken) {
 
         return "{\"link\" : \"" + userService.getShortLink(accessToken) + "\"}";
     }
 
-    @RequestMapping(value = "get_user_info")
+    @RequestMapping(value = "get_user_info", method = RequestMethod.POST)
     @ResponseBody
     public String getUserInfo(@CookieValue("access_token") String accessToken) {
         return "{\"info\" : \"" + resumeService.getUserInfo(accessToken) + "\"}";
     }
 
-    @RequestMapping(value = "save_pdf")
+    @RequestMapping(value = "save_pdf", method = RequestMethod.POST)
     @ResponseBody
     public String savePdf(@CookieValue("access_token") String accessToken, String html) {
         resumeService.savePdf(accessToken, html);
