@@ -4,6 +4,10 @@
 *.iws
 .idea/
 
+src/main/webapp/node
+bower_components
+node_modules
+
 #maven
 /target
 

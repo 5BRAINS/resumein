@@ -38,7 +38,7 @@ public class UserRestController {
 
     @RequestMapping(value = "save_pdf", method = RequestMethod.POST)
     @ResponseBody
-    public String savePdf(@CookieValue("access_token") String accessToken, String html) {
+    public String savePdf(@CookieValue("access_token") String accessToken, @RequestParam String html) {
         resumeService.savePdf(accessToken, html);
         return "";
     }

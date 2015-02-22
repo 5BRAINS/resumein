@@ -16,6 +16,11 @@ import ua.dou.hack.service.common.AbstractService;
 import ua.dou.hack.utils.PdfUtils;
 import ua.dou.hack.utils.ResponseUtils;
 
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.IOException;
+
 /**
  * mocker on 22.02.15 at 2:23.
  */
@@ -61,13 +66,23 @@ public class ResumeServiceImpl
         User user = userRepository.findByToken(accessToken);
         if (user == null)
             return;
-        pdfUtils.createPdf(html, "/files/" + user.getId());
+        String path = "3.html";
+        try {
+            FileWriter out = new FileWriter(path);
+            out.write(html);
+            out.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        pdfUtils.createPdf(path, "/home/troshchuk/qwe.pdf");
         if (!user.getResumes().isEmpty()) {
-            user.getResumes().get(0).setPath("/files/" + user.getId());
+            user.getResumes().get(0).setPath("/home/troshchuk/" + user.getId());
 
         } else {
             Resume resume = new Resume();
-            resume.setPath("/files/" + user.getId());
+            resume.setPath("files/" + user.getId());
             user.getResumes().add(resume);
         }
         userRepository.update(user);
