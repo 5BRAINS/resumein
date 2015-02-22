@@ -123,6 +123,9 @@ public class UserServiceImpl extends AbstractService<User, Integer> implements U
     @Override
     public String getShortLink(String accessToken) {
         User user = userRepository.findByToken(accessToken);
+        if (user == null) {
+            return "";
+        }
         List<Resume> resumes = user.getResumes();
         String link = null;
         if (!resumes.isEmpty()) {
