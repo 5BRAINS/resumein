@@ -1,6 +1,6 @@
 {
 "name": "resumein",
 "dependencies": {
-
+"bower": "1.3.12"
 }
 }
