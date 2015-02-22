@@ -13,4 +13,5 @@ public interface ResumeService extends Operations<Resume, Integer> {
     void savePdf(String accessToken, String html);
     void saveResume(String accessToken, String resumeInfo, String resumeName,
                     int templateId);
+    void saveLink(String accessToken, String link);
 }

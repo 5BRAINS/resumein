@@ -31,4 +31,11 @@ public class ResumeRestController {
                              @RequestParam("user_info") String userInfo) {
         resumeService.saveResume(accessToken, userInfo, resumeName, templateId);
     }
+
+    @RequestMapping(value = "save_link")
+    @ResponseBody
+    public void hasResume(@CookieValue("access_token") String accessToken,
+                          @RequestParam("link") String link) {
+        resumeService.saveLink(accessToken, link);
+    }
 }

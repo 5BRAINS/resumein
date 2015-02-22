@@ -93,6 +93,17 @@ public class ResumeServiceImpl
     }
 
     @Override
+    public void saveLink(String accessToken, String link) {
+        User user = userRepository.findByToken(accessToken);
+        if (user == null)
+            return;
+        if (user.getResumes().isEmpty())
+            return;
+        user.getResumes().get(0).setLink(link);
+        userRepository.update(user);
+    }
+
+    @Override
     public boolean isResumeInUser(String accessToken) {
         User user = userRepository.findByToken(accessToken);
         return user != null && !user.getResumes().isEmpty();
