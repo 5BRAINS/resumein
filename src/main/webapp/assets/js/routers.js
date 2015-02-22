@@ -16,7 +16,21 @@ function RoutersConfig($routeProvider, $locationProvider) {
         })
         .when("/:resumeId", {
             templateUrl: "views/cv_preview.html",
-            controller: "HomeController"
-        })
+            controller: "HomeController",
+            resolve: {
+                checkHasCv: checkHasCv
+            }
+        });
 
+}
+
+checkHasCv.$inject = ["$q", "$location", "resumeService"];
+
+function checkHasCv($q, $location, resumeService) {
+    var defer = $q.defer();
+    if (!resumeService.hasUserCv()) {
+        $location.path("/edit");
+    }
+    defer.resolve();
+    return defer.promise;
 }

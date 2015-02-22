@@ -1,63 +1,67 @@
-<!-- Navigation -->
-<nav class = "navbar navbar-default navbar-fixed-top">
-	<div class = "container ">
-		<!-- Brand and toggle get grouped for better mobile display -->
+<div ng-controller="EditController">
+	<!-- Navigation -->
+	<nav class = "navbar navbar-default navbar-fixed-top">
+		<div class = "container ">
+			<!-- Brand and toggle get grouped for better mobile display -->
 
-		<!-- Collect the nav links, forms, and other content for toggling -->
-		<div class = "collapse navbar-collapse" id = "bs-example-navbar-collapse-1">
-			<ul class = "nav navbar-nav navbar-right">
-				<li class = "hidden">
-					<a href = "#page-top"></a>
-				</li>
-				<li class = "page-scroll">
-					<a href = "#portfolio">11Portfolio</a>
-				</li>
-				<li class = "page-scroll">
-					<a href = "#about">About</a>
-				</li>
-				<li class = "page-scroll">
-					<a href = "#contact">Contact</a>
-				</li>
-			</ul>
-		</div>
-		<!-- /.navbar-collapse -->
-	</div>
-	<!-- /.container-fluid -->
-</nav>
-
-<!-- Header -->
-<header class="document-edit" ng-controller="EditController">
-	<div class = "container document-edit">
-		<div class="row" >
-			<div class="col-md-8 edit-cv">
-				<div class="center-block" ng-include="'/views/templates/cv_template.html'"></div>
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class = "collapse navbar-collapse" id = "bs-example-navbar-collapse-1">
+				<ul class = "nav navbar-nav navbar-left">
+					<li class = "page-scroll">
+						<a href = ""><span class="glyphicon glyphicon-floppy-disk"></span> Save</a>
+					</li>
+					<li class = "page-scroll">
+						<a href = ""><span class="glyphicon glyphicon-picture"></span> Preview</a>
+					</li>
+					<li class = "page-scroll">
+						<a href="" ng-click="loadFromLinkedIn()"><span class="glyphicon glyphicon-save"></span> Load from LinkedIn</a>
+					</li>
+				</ul>
+				<ul class = "nav navbar-nav navbar-right">
+					<li class = "page-scroll">
+						<a href = "">Sign Out</a>
+					</li>
+				</ul>
 			</div>
-			<div class="col-md-3 col-md-offset-8 edit-menu">
-				<div class="panel panel-default">
-					<div class="panel-body">
-						<div>
-							<div class="input-group">
-								<span class="input-group-addon">http://domain.com/</span>
-								<input type="text" class="form-control" placeholder="URL">
+			<!-- /.navbar-collapse -->
+		</div>
+		<!-- /.container-fluid -->
+	</nav>
+
+	<!-- Header -->
+	<header class="document-edit">
+		<div class = "container document-edit">
+			<div class="row" >
+				<div class="col-md-8 edit-cv">
+					<div class="center-block" ng-include="'/views/templates/cv_template.html'"></div>
+				</div>
+				<div class="col-md-3 col-md-offset-8 edit-menu">
+					<div class="panel panel-default">
+						<div class="panel-body">
+							<div>
+								<div class="input-group">
+									<span class="input-group-addon">http://domain.com/</span>
+									<input type="text" class="form-control" placeholder="URL">
+								</div>
 							</div>
-						</div>
-						<div class="text-left">
-							<h5>Fields:</h5>
-							<label><input type="checkbox" ng-model="headline">Headline</label><br>
-							<label><input type="checkbox" ng-model="contacts">Contacts</label><br>
-							<label><input type="checkbox" ng-model="work_history">Work history</label><br>
-							<label><input type="checkbox" ng-model="skills">Tech skills</label><br>
-							<label><input type="checkbox" ng-model="education">Education</label><br>
-						</div>
+							<div class="text-left">
+								<h5>Fields:</h5>
+								<label><input type="checkbox" ng-model="headline">Headline</label><br>
+								<label><input type="checkbox" ng-model="contacts">Contacts</label><br>
+								<label><input type="checkbox" ng-model="work_history">Work history</label><br>
+								<label><input type="checkbox" ng-model="skills">Tech skills</label><br>
+								<label><input type="checkbox" ng-model="education">Education</label><br>
+							</div>
 
-						<div class="text-left">
-							<h5>Templates:</h5>
-							<label><input type="checkbox" >Template 1</label><br>
-						</div>
+							<div class="text-left">
+								<h5>Templates:</h5>
+								<label><input type="checkbox" >Template 1</label><br>
+							</div>
 
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-</header>
+	</header>
+</div>
