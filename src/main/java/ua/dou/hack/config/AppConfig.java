@@ -40,7 +40,7 @@ public class AppConfig {
     private Environment env;
 
     @Bean
-    public LocalSessionFactoryBean sessionFactory() {
+    public LocalSessionFactoryBean sessionFactory() throws URISyntaxException {
         LocalSessionFactoryBean sessionFactory =
                 new LocalSessionFactoryBean();
 
@@ -51,30 +51,19 @@ public class AppConfig {
     }
 
     @Bean
-    public DataSource dataSource() throws URISyntaxException {
+    public DataSource restDataSource() throws URISyntaxException {
         URI dbUri = new URI(System.getenv("CLEARDB_DATABASE_URL"));
 
         String username = dbUri.getUserInfo().split(":")[0];
         String password = dbUri.getUserInfo().split(":")[1];
         String dbUrl = "jdbc:mysql://" + dbUri.getHost() + dbUri.getPath();
 
-        DriverManagerDataSource basicDataSource = new DriverManagerDataSource();
-        basicDataSource.setUrl(dbUrl);
-        basicDataSource.setUsername(username);
-        basicDataSource.setPassword(password);
-
-        return basicDataSource;
-    }
-
-    @Bean
-    public DataSource restDataSource() {
-
         DriverManagerDataSource dataSource =
                 new DriverManagerDataSource();
         dataSource.setDriverClassName(env.getProperty("jdbc.driverClassName"));
-        dataSource.setUrl(env.getProperty("jdbc.url"));
-        dataSource.setUsername(env.getProperty("jdbc.user"));
-        dataSource.setPassword(env.getProperty("jdbc.pass"));
+        dataSource.setUrl(dbUrl);
+        dataSource.setUsername(username);
+        dataSource.setPassword(password);
 
         return dataSource;
     }
