@@ -40,4 +40,11 @@ public class UserRestController {
         resumeService.savePdf(accessToken, html);
         return "";
     }
+
+    @RequestMapping(value = "has_resume")
+    @ResponseBody
+    public boolean hasResume(@CookieValue("access_token") String accessToken) {
+
+        return resumeService.isResumeInUser(accessToken);
+    }
 }

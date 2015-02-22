@@ -8,5 +8,7 @@ import ua.dou.hack.repository.common.Operations;
  */
 public interface ResumeService extends Operations<Resume, Integer> {
     String getUserInfo(String accessToken);
+
+    boolean isResumeInUser(String accessToken);
     void savePdf(String accessToken, String html);
 }

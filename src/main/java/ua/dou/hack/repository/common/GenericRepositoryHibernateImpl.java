@@ -5,6 +5,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.io.Serializable;
+import java.nio.file.Files;
 
 public class GenericRepositoryHibernateImpl<T, PK extends Serializable>
         implements GenericRepository<T, PK> {

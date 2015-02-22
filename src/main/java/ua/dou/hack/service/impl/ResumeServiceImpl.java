@@ -73,7 +73,14 @@ public class ResumeServiceImpl
         userRepository.update(user);
     }
 
+    @Override
+    public boolean isResumeInUser(String accessToken) {
+        User user = userRepository.findByToken(accessToken);
+        return user != null && !user.getResumes().isEmpty();
+    }
+
     private String grabUserInfo(String accessToken) {
+
         String url = env.getProperty("user.info.link");
         HttpGet httpGet = new HttpGet(url);
         httpGet.addHeader("Connection", "Keep-Alive");
