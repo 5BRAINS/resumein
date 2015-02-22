@@ -21,17 +21,17 @@ public class UserRestController {
     @Autowired
     private ResumeService resumeService;
 
-    @RequestMapping(value = "get_short_url", method = RequestMethod.POST)
+    @RequestMapping(value = "get_short_url")
     @ResponseBody
     public String getShortUrl(@CookieValue("access_token") String accessToken) {
 
-        return "{\"link\" : \"" + userService.getShortLink(accessToken) + "\"}";
+        return userService.getShortLink(accessToken);
     }
 
-    @RequestMapping(value = "get_user_info", method = RequestMethod.POST)
+    @RequestMapping(value = "get_user_info")
     @ResponseBody
     public String getUserInfo(@CookieValue("access_token") String accessToken) {
-        return "{\"info\" : \"" + resumeService.getUserInfo(accessToken) + "\"}";
+        return resumeService.getUserInfo(accessToken);
     }
 
     @RequestMapping(value = "save_pdf", method = RequestMethod.POST)

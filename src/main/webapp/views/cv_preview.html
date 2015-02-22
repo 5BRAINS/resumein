@@ -1,47 +1,48 @@
-<!-- Navigation -->
-<nav class = "navbar navbar-default navbar-fixed-top">
-	<div class = "container ">
-		<!-- Brand and toggle get grouped for better mobile display -->
+<div ng-controller="PreviewController">
+	<!-- Navigation -->
+	<nav class = "navbar navbar-default navbar-fixed-top">
+		<div class = "container ">
+			<!-- Brand and toggle get grouped for better mobile display -->
 
-		<!-- Collect the nav links, forms, and other content for toggling -->
-		<div class = "collapse navbar-collapse" id = "bs-example-navbar-collapse-1">
-			<ul class = "nav navbar-nav navbar-right">
-				<li class = "hidden">
-					<a href = "#page-top"></a>
-				</li>
-				<li class = "page-scroll">
-					<a href = "#portfolio">11Portfolio</a>
-				</li>
-				<li class = "page-scroll">
-					<a href = "#about">About</a>
-				</li>
-				<li class = "page-scroll">
-					<a href = "#contact">Contact</a>
-				</li>
-			</ul>
-		</div>
-		<!-- /.navbar-collapse -->
-	</div>
-	<!-- /.container-fluid -->
-</nav>
-
-<!-- Header -->
-<header class="document-preview">
-	<div class = "container document-preview">
-
-		<div class="row">
-			<div class="col-md-8 col-md-offset-2 preview-cv ">
-				<div ng-include="'/views/templates/cv_template2.html'"></div>
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class = "collapse navbar-collapse" id = "bs-example-navbar-collapse-1">
+				<ul class = "nav navbar-nav navbar-left">
+					<li class = "page-scroll">
+						<a href = ""><span class="glyphicon glyphicon-download"></span> PDF</a>
+					</li>
+					<li class = "page-scroll">
+						<a href = ""><span class="glyphicon glyphicon-edit"></span> Edit</a>
+					</li>
+				</ul>
+				<ul class = "nav navbar-nav navbar-right">
+					<li class = "page-scroll">
+						<a href = "">Sign Out</a>
+					</li>
+				</ul>
 			</div>
+			<!-- /.navbar-collapse -->
 		</div>
+		<!-- /.container-fluid -->
+	</nav>
 
-	</div>
-</header>
+	<!-- Header -->
+	<header class="document-preview">
+		<div class = "container document-preview">
+
+			<div class="row">
+				<div class="col-md-8 col-md-offset-2 preview-cv ">
+					<div ng-include="'/views/templates/cv_template2.html'"></div>
+				</div>
+			</div>
+
+		</div>
+	</header>
 
 
 <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
-<div class="scroll-top page-scroll visible-xs visble-sm">
-	<a class="btn btn-primary" href="#page-top">
-		<i class="fa fa-chevron-up"></i>
-	</a>
+	<div class="scroll-top page-scroll visible-xs visble-sm">
+		<a class="btn btn-primary" href="#page-top">
+			<i class="fa fa-chevron-up"></i>
+		</a>
+	</div>
 </div>

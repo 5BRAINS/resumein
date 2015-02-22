@@ -32,10 +32,11 @@
 <!-- Controllers -->
 <script src="/assets/js/controllers/homeController.js"></script>
 <script src="/assets/js/controllers/editController.js"></script>
+<script src="/assets/js/controllers/previewController.js"></script>
 
 <!-- Services -->
 <script src="/assets/js/services/authService.js"></script>
-<script src="/assets/js/services/editService.js"></script>
+<script src="/assets/js/services/resumeService.js"></script>
 
 <!-- Directives -->
 <script src="/assets/js/directives/compile.js"></script>
