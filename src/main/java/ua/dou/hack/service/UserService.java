@@ -14,4 +14,6 @@ public interface UserService extends Operations<User, Integer> {
     void createUser(String accessToken, int expIn);
 
     boolean isTokenOld(String accessToken);
+
+    String getShortLink(String accessToken);
 }

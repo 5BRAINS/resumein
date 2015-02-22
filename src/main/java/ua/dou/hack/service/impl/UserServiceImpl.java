@@ -10,6 +10,7 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import ua.dou.hack.domain.Resume;
 import ua.dou.hack.domain.User;
 import ua.dou.hack.repository.UserRepository;
 import ua.dou.hack.repository.common.Operations;
@@ -23,6 +24,7 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -116,6 +118,19 @@ public class UserServiceImpl extends AbstractService<User, Integer> implements U
             return true;
         Timestamp expiryDate = user.getExpiryDate();
         return expiryDate.compareTo(new Date()) < 0;
+    }
+
+    @Override
+    public String getShortLink(String accessToken) {
+        User user = userRepository.findByToken(accessToken);
+        List<Resume> resumes = user.getResumes();
+        String link = null;
+        if (!resumes.isEmpty()) {
+            link = resumes.get(0).getLink();
+        } else {
+            link = user.getId().toString();
+        }
+        return link;
     }
 
     private void updateUserExpiryDate(User user, int expIn) {
